@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   # PostgreSQL Database
   db:
@@ -23,7 +21,7 @@ services:
       retries: 5
       start_period: 10s
     networks:
-      - apex-network
+      - default
     restart: unless-stopped
     # Resource limits
     deploy:
@@ -46,7 +44,7 @@ services:
       PORT: 3000
       LOG_LEVEL: ${LOG_LEVEL:-info}
       APP_VERSION: ${APP_VERSION:-1.0.0}
-      DB_HOST: db
+      DB_HOST: localhost
       DB_PORT: 5432
       DB_USER: ${DB_USER:-postgres}
       DB_PASSWORD: ${DB_PASSWORD:-postgres}
@@ -56,8 +54,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    networks:
-      - apex-network
     restart: unless-stopped
     # Non-root user is set in Dockerfile
     # Resource limits
@@ -77,30 +73,8 @@ services:
         max-file: "3"
         labels: "service=apex-api"
 
-  # Optional: Prometheus mock for metrics scraping
-  prometheus:
-    image: prom/prometheus:latest
-    container_name: apex-prometheus
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-      - prometheus_data:/prometheus
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-    networks:
-      - apex-network
-    restart: unless-stopped
-    profiles:
-      - monitoring
-
 volumes:
   postgres_data:
     driver: local
-  prometheus_data:
-    driver: local
 
-networks:
-  apex-network:
-    driver: bridge
+# Default network is used
