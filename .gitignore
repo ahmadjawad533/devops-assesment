@@ -1,47 +1,251 @@
-# Dependencies
+# ============================================================================
+# DEPENDENCIES & PACKAGE MANAGERS
+# ============================================================================
 node_modules/
 package-lock.json
+yarn.lock
+.npm
+.eslintcache
+dist/
+build/
 
-# Environment files
+# ============================================================================
+# ENVIRONMENT & SECRETS - CRITICAL: NEVER COMMIT
+# ============================================================================
 .env
 .env.local
 .env.*.local
+.env.production
+.env.test
+.env.development
+.env.staging
+*.key
+*.pem
+*.p12
+*.cert
+*.crt
+secret*
+secrets/
+credentials.json
+~/.kube/config
+.aws/
+.gcp/
+.azure/
 
-# Logs
+# ============================================================================
+# SENSITIVE DATA & CREDENTIALS
+# ============================================================================
+# SSH Keys
+*.ssh
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+authorized_keys
+
+# Private keys & certificates
+private_key*
+private-key*
+*.pfx
+*.keystore
+*.jks
+*.pks12
+
+# API Keys & Tokens (any file with secrets in name)
+api_key*
+token*
+password*
+secret*
+credential*
+aws_access_key*
+aws_secret*
+
+# Database credentials & connection strings
+db_password*
+database.yml
+database.json
+connections.yml
+
+# OAuth & Authentication
+.oauth
+oauth_tokens
+refresh_tokens
+
+# Sensitive data files
+account.json
+secrets.yaml
+secrets.json
+sensitive.*
+
+# ============================================================================
+# LOGS & DEBUG FILES
+# ============================================================================
 logs/
+log/
 *.log
 npm-debug.log*
+npm-error.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+debug.log
+.firebase/
+.rpt2_cache/
 
-# Test coverage
+# ============================================================================
+# TEST & COVERAGE
+# ============================================================================
 coverage/
 .nyc_output/
+*.lcov
+.coverage
+htmlcov/
 
-# IDE
-.vscode/
-.idea/
+# ============================================================================
+# TEMPORARY & CACHE FILES
+# ============================================================================
+tmp/
+temp/
+.tmp/
+*.tmp
 *.swp
 *.swo
 *~
-.DS_Store
+.cache
+.eslintcache
+.stylelintcache
+.parcelcache
+.next
+out
 
-# Build artifacts
+# ============================================================================
+# IDE & EDITOR
+# ============================================================================
+.vscode/
+.idea/
+*.iml
+*.sublime-workspace
+*.sublime-project
+.eclipse
+.classpath
+.c9/
+*.tern-port
+.project
+.pydevproject
+.settings/
+
+# ============================================================================
+# OS FILES
+# ============================================================================
+.DS_Store
+Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+desktop.ini
+
+# ============================================================================
+# RUNTIME & APPLICATION STATE
+# ============================================================================
+.deployments/
+.env.*.cache
 dist/
 build/
-out/
+node_dist/
+coverage/
+.firebase
+.env.production.local
 
-# Docker
-.dockerignore
+# ============================================================================
+# DOCKER & CONTAINER
+# ============================================================================
+# Don't commit .dockerignore itself, but exclude container artifacts
+docker-compose.override.yml
+.docker/
 
-# Deployment records
-.deployments/
+# ============================================================================
+# GIT & VERSION CONTROL
+# ============================================================================
+.git/
+.gitignore
+.gitattributes
 
-# Temporary files
-tmp/
-temp/
-*.tmp
+# ============================================================================
+# BACKUPS & ARCHIVES
+# ============================================================================
+*.bak
+*.backup
+*.tar
+*.tar.gz
+*.zip
+*.rar
+dump.sql
+*.sql
+backup/
+backups/
 
-# OS files
-Thumbs.db
-.DS_Store
+# ============================================================================
+# DATABASE & PERSISTENCE
+# ============================================================================
+*.db
+*.sqlite
+*.sqlite3
+*.mdb
+postgres_data/
+mysql_data/
+mongodb_data/
+*.dump
+
+# ============================================================================
+# BUILD OUTPUTS & DISTRIBUTIONS
+# ============================================================================
+dist/
+build/
+*.egg-info/
+.eggs/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ============================================================================
+# IDE GENERATED
+# ============================================================================
+.gradle
+.netlify
+build/
+.flutter-plugins
+.plugins
+pubspec.lock
+
+# ============================================================================
+# CONFIDENTIAL & PROPRIETARY
+# ============================================================================
+# Personal data
+**/personal*
+**/confidential*
+**/private*
+**/secure*
+**/.secure
+**/.confidential
+
+# Business sensitive
+contracts/
+agreements/
+company_data/
+proprietary/
+
+# ============================================================================
+# MONITORING & LOGGING
+# ============================================================================
+prometheus_data/
+grafana_data/
+elasticsearch_data/
+.monitoring/
+
+# ============================================================================
+# CUSTOM EXCLUSIONS
+# ============================================================================
+# Add project-specific excludes below:
+
